@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Parkinson's Disease Detection using Machine Learning.">
+    <title>Parkinson's Disease Detection</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+            <h1>NeuroPredict</h1>
+            <p>Advanced Machine Learning for Parkinson's Disease Detection based on Biomedical Voice Measurements.</p>
+        </header>
+
+        <section class="glass-panel">
+            <div class="panel-header">
+                <h2><i class="fa-solid fa-wave-square"></i> Voice Feature Input</h2>
+                <button id="autofill-btn" class="btn btn-secondary">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Auto-fill Sample Data
+                </button>
+            </div>
+            
+            <form id="prediction-form" class="form-grid">
+                <div id="loading-features" class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading feature inputs...</p>
+                </div>
+                <!-- Dynamic inputs will be generated here by JS -->
+            </form>
+
+            <div class="action-container">
+                <button type="submit" form="prediction-form" class="btn btn-primary btn-large">
+                    <i class="fa-solid fa-microscope"></i> Analyze Data
+                </button>
+            </div>
+        </section>
+
+        <!-- Result Modal -->
+        <div id="result-modal" class="modal">
+            <div class="modal-content glass-panel">
+                <span class="close-btn">&times;</span>
+                <h2 id="result-title">Analysis Complete</h2>
+                
+                <div class="result-display">
+                    <div class="status-indicator" id="status-icon">
+                        <!-- Filled by JS -->
+                    </div>
+                    <h3 id="result-text">---</h3>
+                </div>
+
+                <div class="prob-container">
+                    <div class="prob-bar-label">
+                        <span>Healthy Probability</span>
+                        <span id="prob-healthy-text">0%</span>
+                    </div>
+                    <div class="prob-bar">
+                        <div id="prob-healthy-fill" class="prob-fill healthy-fill"></div>
+                    </div>
+
+                    <div class="prob-bar-label">
+                        <span>Parkinson's Probability</span>
+                        <span id="prob-parkinsons-text">0%</span>
+                    </div>
+                    <div class="prob-bar">
+                        <div id="prob-parkinsons-fill" class="prob-fill parkinsons-fill"></div>
+                    </div>
+                </div>
+                <p class="disclaimer"><i class="fa-solid fa-triangle-exclamation"></i> Disclaimer: This tool is for educational purposes and should not replace professional medical advice.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
